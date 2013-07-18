@@ -3,9 +3,9 @@ set nocompatible
 " NeoBundle
 if has('win32') || has('win64')
     if has('vim_starting')
-        set runtimepath+=~/vimfiles/bundle/neobundle.vim/
+        set runtimepath+=$HOME/vimfiles/bundle/neobundle.vim/
     endif
-    call neobundle#rc(expand('~/vimfiles/bundle/'))
+    call neobundle#rc(expand('$HOME/vimfiles/bundle/'))
 else
     if has('vim_starting')
         set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -32,6 +32,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'marijnh/tern_for_vim'
+NeoBundle 'elzr/vim-json'
 
 filetype plugin indent on	" Required!
 
