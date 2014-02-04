@@ -21,18 +21,21 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/vimproc'
 
-NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'junegunn/seoul256.vim'
+" NeoBundle 'chriskempson/base16-vim'
+" NeoBundle 'tomasr/molokai'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'wookiehangover/jshint.vim'
+" NeoBundle 'Shutnik/jshint2.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-NeoBundle 'marijnh/tern_for_vim'
+" NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'tristen/vim-sparkup'
+" NeoBundle 'marijnh/tern_for_vim'
 NeoBundle 'elzr/vim-json'
+NeoBundle 'tpope/vim-vinegar'
 
 filetype plugin indent on	" Required!
 
@@ -83,7 +86,7 @@ set formatoptions=qrn1
 " set colorcolumn=85
 
 " Colours
-let base16colorspace=256  " Access colors present in 256 colorspace
-set t_Co=256
-set background=dark
-colorscheme base16-solarized
+colo seoul256
+
+" Airline
+let g:airline_powerline_fonts = 1

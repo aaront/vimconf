@@ -1,5 +1,5 @@
 if has ("win32")
-    set guifont=Ubuntu\ Mono:h12
+    set guifont=PragmataPro:h11
 else
     set guifont=Source\ Code\ Pro:h13
 endif
@@ -8,4 +8,5 @@ if has("gui_macvim")
     " Sets the percent transparency
     set transparency=3
 endif
-set linespace=3
+set background=light
+"set linespace=3
