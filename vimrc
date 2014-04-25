@@ -2,11 +2,13 @@ set nocompatible
 
 " NeoBundle
 if has('win32') || has('win64')
+    let $VIMFILESDIR=expand('$HOME/vimfiles')
     if has('vim_starting')
         set runtimepath+=$HOME/vimfiles/bundle/neobundle.vim/
     endif
     call neobundle#rc(expand('$HOME/vimfiles/bundle/'))
 else
+    let $VIMFILESDIR=expand('~/.vim')
     if has('vim_starting')
         set runtimepath+=~/.vim/bundle/neobundle.vim/
     endif
@@ -37,7 +39,7 @@ NeoBundle 'tristen/vim-sparkup'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'tpope/vim-vinegar'
 
-filetype plugin indent on	" Required!
+filetype plugin indent on " Required!
 
 " Installation check
 NeoBundleCheck
@@ -60,8 +62,38 @@ set visualbell
 set cursorline
 set ttyfast
 set relativenumber
-set undofile
 set splitright
+
+" Undofile/Swapfile Elegance
+" http://stackoverflow.com/questions/4331776/change-vim-swap-backup-undo-file-name
+
+" Save your backups to a less annoying place than the current directory.
+" If you have .vim-backup in the current directory, it'll use that.
+" Otherwise it saves it to ~/.vim/backup or . if all else fails.
+set backupdir-=.
+set backupdir+=.
+set backupdir-=~/
+set backupdir^=$VIMFILESDIR/backup/
+set backupdir^=./.vim-backup/
+set backup
+
+" Save your swp files to a less annoying place than the current directory.
+" If you have .vim-swap in the current directory, it'll use that.
+" Otherwise it saves it to ~/.vim/swap, ~/tmp or .
+set directory=./.vim-swap//
+set directory+=$VIMFILESDIR/swap//
+set directory+=~/tmp//
+set directory+=.
+
+if exists("+undofile")
+  " undofile - This allows you to use undos after exiting and restarting
+  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+  " :help undo-persistence
+  " This is only present in 7.3+
+  set undodir=./.vim-undo//
+  set undodir+=$VIMFILESDIR/undo//
+  set undofile
+endif
 
 " Mappings
 let mapleader=","
