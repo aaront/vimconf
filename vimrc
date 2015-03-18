@@ -6,13 +6,13 @@ if has('win32') || has('win64')
     if has('vim_starting')
         set runtimepath+=$HOME/vimfiles/bundle/neobundle.vim/
     endif
-    call neobundle#rc(expand('$HOME/vimfiles/bundle/'))
+    call neobundle#begin(expand('$HOME/vimfiles/bundle/'))
 else
     let $VIMFILESDIR=expand('~/.vim')
     if has('vim_starting')
         set runtimepath+=~/.vim/bundle/neobundle.vim/
     endif
-    call neobundle#rc(expand('~/.vim/bundle/'))
+    call neobundle#begin(expand('~/.vim/bundle/'))
 endif
 
 
@@ -25,9 +25,9 @@ NeoBundle 'Shougo/vimproc'
 
 NeoBundle 'junegunn/seoul256.vim'
 " NeoBundle 'chriskempson/base16-vim'
-" NeoBundle 'tomasr/molokai'
+NeoBundle 'tomasr/molokai'
 NeoBundle 'kien/ctrlp.vim'
-" NeoBundle 'Shutnik/jshint2.vim'
+NeoBundle 'Shutnik/jshint2.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'ervandew/supertab'
@@ -39,10 +39,9 @@ NeoBundle 'tristen/vim-sparkup'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'tpope/vim-vinegar'
 
-filetype plugin indent on " Required!
+call neobundle#end()
 
-" Installation check
-NeoBundleCheck
+filetype plugin indent on " Required!
 
 " Editing
 set modelines=0
@@ -61,7 +60,7 @@ set wildmode=list:longest
 set visualbell
 set cursorline
 set ttyfast
-set relativenumber
+"set relativenumber
 set splitright
 
 " Undofile/Swapfile Elegance
@@ -122,3 +121,7 @@ colo seoul256
 
 " Airline
 let g:airline_powerline_fonts = 1
+
+" Neobundle Installation check
+NeoBundleCheck
+
